@@ -1,0 +1,8 @@
+2  yum install httpd
+    3  service httpd start
+    4  systemctl enable httpd
+    5  4  sh -c "echo 'Hello From Order Instance' > /var/www/html/order.html"
+    6  sh -c "echo 'Hello From Pantry Instance' > /var/www/html/pantry.html"
+    7  cd /var/www/html
+    8  ls
+    9  cat pantry.html 
