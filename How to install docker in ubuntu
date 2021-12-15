@@ -21,3 +21,31 @@
    20  ls
    21  cd ..
    22  history
+   
+   ------
+   vi dockerfile
+   Press Esc key in your keyboard then press i in your keyboard
+   paste the below content
+ 
+#start with a base image containing java runtime
+FROM openjdk:11
+#who is maintaing this image
+LABEL maintainer="gopal1409@gmail.com"
+#we are going to create a volume pointing to /tmp
+VOLUME /tmp
+#make port 8080 avaialg to the world
+EXPOSE 8080
+#inside the openjdk image we will put jar file
+ARG JAR_FILE=target/wesocker-demo-0.0.1-SNAPSHOT.jar
+ADD ${JAR_FILE} websocket-demo.jar
+#RUn the jar file
+ENTRYPOINT ["java","-Djava.security.egd=file:/dev/./urandom","-jar","/websocket-demo.jar"]
+
+----
+once pasted press Esc key in your keyboard
+Press :wq
+--------
+28  docker build -t chatdemo .
+   29  docker images
+   30  docker run -p 8080:8080 -d chatdemo
+   31  docker ps
