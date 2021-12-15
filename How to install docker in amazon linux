@@ -1,0 +1,10 @@
+[root@ip-172-31-80-141 ~]# history
+    1  yum update -y
+    2  amazon-linux-extras install docker
+    3  clear
+  
+    5  systemctl start docker
+    6  systemctl enable docker
+    7  usermod -a -G docker ec2-user
+    8  docker ps
+    9  history
